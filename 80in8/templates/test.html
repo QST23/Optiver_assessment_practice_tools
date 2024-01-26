@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optiver 80 in 8 approximator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="title">Optiver 80 in 8 approximator</div>
+
+    <!-- Visual Timer Bar -->
+    <div id="timer-container">
+        <div id="time-left-bar"></div>
+    </div>
+
+    <div id="progress"></div>
+
+    <div id="complete_question">
+        <div id="question"></div>
+        <div id="options"></div>
+    </div>
+
+        <div id="timer"></div>
+        <div id="Submit">
+        <!-- <button onclick="submitAnswers()">Stop Test</button> -->
+    </div>
+    <div id="results"></div>
+
+    <!-- Add a container for the results dashboard -->
+    <div id="dashboard" style="display:none;"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
