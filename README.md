@@ -8,7 +8,7 @@ This web application allows users to practice math by taking a timed test consis
 ### Features
 
 - Timed math tests with a total of 80 questions displayed one at a time.
-- Questions are generated via a `questions_gen.py` file, which computes correct answers and alternative options for given formulas.
+- Input (auto generated or self made) formulas in the questions_gen list of questions, and the answers and alternatives will be generated automatically to form complete questions.
 - Tracking of correct and incorrect answers with a simple and playful user interface.
 - A final dashboard that shows user performance upon test completion.
 
