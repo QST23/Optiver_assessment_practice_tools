@@ -81,8 +81,5 @@ For example, if the numbers are 2, 3, 4 and the target is 14, a valid solution c
 If incorrect, it will show you how your approach does not lead to the target number, and gives you another chance (3 total). Thereafter, (or when typing "-q"), it will show you the solution.
 
 
-### License
-This project is open-source and available for anyone to use and modify.
-
-
-
+## License
+All projects here are open-source and available for anyone to use and modify.
