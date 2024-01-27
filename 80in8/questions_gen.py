@@ -7,38 +7,7 @@ import operator as op
 import random
 from random import randint
 
-
-equations_db = [
-    # Simple arithmetic
-    "62 + 17", "91 - 33", "14 * 4", "120 / 3", 
-    "150 - 75", "23 + 47", "16 * 5", "64 / 8", 
-    "37 + 19", "82 - 60", "11 * 6", "96 / 4", 
-    "55 + 45", "100 - 50", "8 * 7", "56 / 7", 
-
-    # Fractions
-    "(1/2) + (1/3)", "(3/4) - (1/5)", "(2/3) * (3/4)", "(4/5) / (2/3)",
-    "(1/8) + (1/9)", "(3/7) - (2/5)", "(5/6) * (1/4)", "(7/8) / (3/4)",
-    "(2/5) + (3/5)", "(4/9) - (1/9)", "(6/7) * (2/3)", "(8/9) / (1/3)",
-    "(1/4) + (3/4)", "(2/5) - (1/10)", "(3/8) * (4/5)", "(5/6) / (2/5)",
-    "(3/7) + (2/7)", "(4/9) - (1/9)", "(5/11) * (4/5)", "(6/7) / (2/5)",
-
-    # Mixed operations
-    "25 + (1/2)", "38 - (2/3)", "49 * (3/4)", "72 / (5/6)",
-    "18 + (2/5)", "29 - (1/4)", "31 * (4/7)", "63 / (3/8)",
-    "42 + (1/3)", "53 - (2/5)", "64 * (5/8)", "81 / (4/9)",
-    "15 + (3/7)", "26 - (1/5)", "34 * (6/11)", "48 / (7/12)",
-    "12 + (4/9)", "23 - (2/7)", "34 * (7/13)", "45 / (8/15)",
-
-    # Larger numbers and fractions
-    "125 + 175", "300 - 150", "50 * 4", "200 / 5",
-    "(3/10) + (4/10)", "(7/12) - (1/6)", "(9/14) * (2/7)", "(11/15) / (3/5)",
-    "110 + (2/7)", "220 - (3/8)", "330 * (4/9)", "440 / (5/11)",
-    "550 + (1/9)", "660 - (2/5)", "770 * (3/7)", "880 / (4/13)",
-    "990 + (3/11)", "1100 - (4/7)", "1210 * (5/9)", "1320 / (6/15)",
-
-    "135 + 65", "210 - 110", "32 * 3", "144 / 6",
-
-]
+from formulas_db import SIMPLE_ARITHMETIC_FORMULAS, FRACTIONS_FORMULAS, MIXED_OPERATIONS_FORMULAS, LARGER_NUMBERS_FRACTIONS_FORMULAS
 
 
 # Enhanced function to handle equations
@@ -88,12 +57,16 @@ def generate_options(answer):
 
 def generate_questions():
     questions = []
-    for eq in equations_db:
-        answer = enhanced_solve_equation(eq)
-        options = generate_options(answer)
-        options.append(answer)
-        random.shuffle(options)
-        questions.append({"equation": eq, "answer": answer, "options": options})
+
+    # sample 20 questions from each category
+    for category in [SIMPLE_ARITHMETIC_FORMULAS, FRACTIONS_FORMULAS, MIXED_OPERATIONS_FORMULAS, LARGER_NUMBERS_FRACTIONS_FORMULAS]:
+        for eq in random.sample(category, 20):
+            answer = enhanced_solve_equation(eq)
+            options = generate_options(answer)
+            options.append(answer)
+            random.shuffle(options)
+            questions.append({"equation": eq, "answer": answer, "options": options})
+
     return questions
 
 
@@ -102,6 +75,6 @@ if __name__ == '__main__':
 
     from pprint import pprint
 
-    questions = generate_questions(equations_db[:10])
+    questions = generate_questions()
     for q in questions:
         pprint(q)
